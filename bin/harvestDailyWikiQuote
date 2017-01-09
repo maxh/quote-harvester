@@ -24,7 +24,7 @@ class QuoteDb {
   static saveIfNew(quote) {
     return this._get(quote).then(existing => {
       if (existing) {
-        console.log('Quote already saved!');
+        console.log('Quote already saved.');
       } else {
         console.log('Quote hasn\'t been saved before. Saving now...');
         return this._save(quote);
@@ -49,7 +49,7 @@ class QuoteDb {
   }
 
   static _get(quote) {
-    console.log('Checking if quote exists!')
+    console.log('Checking if quote exists.')
     return new Promise((resolve, reject) => {
       // Get the keys from all the quotes from this author.
       //   path: authors/<name>/quoteKeys
@@ -107,7 +107,7 @@ class Wikiquote {
 
 const run = () => {
   Wikiquote.getDailyQuote()
-      .then(quote => { return QuoteDb.saveIfNew(quote) })
+      .then(quote => QuoteDb.saveIfNew(quote))
       .catch(err => console.log(err))
       .then(() => process.exit())
 }

@@ -93,7 +93,7 @@ class Wikiquote {
     const rawQuote = page.qotd.replace('Quote of the day', '');
     const parts = rawQuote.split('~').map(part => part.trim());
     const quote = {
-      text: parts[0] + ' test',
+      text: parts[0],
       author: parts[1]
     };
 
